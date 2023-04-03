@@ -10,6 +10,12 @@ fun  main() {
     m.stateHobby()
     var arslan = Person(lastName = "Arslan")
     myFunction(a=5)
+    ///////////////////
+    var myCar = Car()
+    myCar.maxSpeed = 200
+    println("brand is : ${myCar.myBrand}")
+    println("Max Speed is : ${myCar.maxSpeed}")
+    println("Model is ${myCar.myModel}")
 }
 
 class Person(firstName: String = "M" , lastName: String = "Ali") {
@@ -37,5 +43,26 @@ class Person(firstName: String = "M" , lastName: String = "Ali") {
 fun myFunction(a:Int){
     var a = 4
     println("a is $a")
+}
+
+class  Car(){
+    lateinit var owner : String
+
+    val myBrand: String = "BMW"
+        // Custom getter
+    get() {
+        return field.toLowerCase()
+    }
+    var maxSpeed: Int = 250
+    get() = field
+    set(value) {
+        field = if (value > 0) value else throw java.lang.IllegalArgumentException("Maxspeed cannot be less than 0")
+    }
+    var myModel : String ="M5"
+    private set
+    init {
+        this.myModel = "M3"
+        this.owner = "Ali"
+    }
 }
 
