@@ -27,4 +27,7 @@ fun dragObjects(objects: Array<Draggable>){
 
 fun main(){
     dragObjects(arrayOf(Circle1(4.0),Square(4.0),Player("Triangle")))
+    val obj: Any = 1337
+    val str1: String? = obj as? String
+    println(str1)
 }
